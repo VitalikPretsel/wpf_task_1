@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using WpfTask.Enums;
 using WpfTask.Models;
+using WpfTask.Services;
 using WpfTask.ViewModels;
 
 namespace WpfTask
@@ -20,13 +21,7 @@ namespace WpfTask
 
         public App()
         {
-            _person = new PersonModel()
-            {
-                FirstName = "Vitalik",
-                LastName = "Pretsel",
-                Age = 21,
-                Profession = Profession.Developer
-            };
+            _person = PersonService.GetPerson();
         }
 
         protected override void OnStartup(StartupEventArgs e)

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfTask.Views"
+             xmlns:uc="clr-namespace:WpfTask.UserControls"
              mc:Ignorable="d" 
              d:Background="White"
              d:DesignHeight="400" d:DesignWidth="300" FontSize="20">
@@ -31,30 +32,13 @@
 
         <TextBlock Text="Your profile info:" Grid.Row="2" Grid.Column="1"  Margin="0,0,0,10"/>
 
-        <Grid Grid.Row="3" Grid.Column="1" Margin="0,0,0,20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="First name" Grid.Row="0" Grid.Column="0" />
-            <TextBlock Text="{Binding Person.FirstName}" Grid.Row="0" Grid.Column="1" Padding="20,0,0,0" />
-            <TextBlock Text="Last name" Grid.Row="1" Grid.Column="0" />
-            <TextBlock Text="{Binding Person.LastName}" Grid.Row="1" Grid.Column="1" Padding="20,0,0,0" />
-            <TextBlock Text="Age" Grid.Row="2" Grid.Column="0" />
-            <TextBlock Text="{Binding Person.Age}" Grid.Row="2" Grid.Column="1" Padding="20,0,0,0" />
-            <TextBlock Text="Profession" Grid.Row="3" Grid.Column="0" />
-            <TextBlock Text="{Binding Person.Profession}" Grid.Row="3" Grid.Column="1" Padding="20,0,0,0" />
-        </Grid>
+        <StackPanel Grid.Row="3" Grid.Column="1" Margin="0,0,0,20">
+            <uc:TextRowUserControl LabelToDisplay="First name" ContentToDisplay="{Binding Person.FirstName}"/>
+            <uc:TextRowUserControl LabelToDisplay="Last name" ContentToDisplay="{Binding Person.LastName}"/>
+            <uc:TextRowUserControl LabelToDisplay="Age" ContentToDisplay="{Binding Person.Age}"/>
+            <uc:TextRowUserControl LabelToDisplay="Profession" ContentToDisplay="{Binding Person.Profession}"/>
+        </StackPanel>
 
         <Button Command="{Binding Path=OpenEditViewCommand}" Grid.Row="4" Grid.Column="1" Content="Edit info"/>
-
     </Grid>
 </UserControl>
