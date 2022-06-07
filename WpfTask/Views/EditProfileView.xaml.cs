@@ -17,9 +17,9 @@ namespace WpfTask.Views
     /// <summary>
     /// Interaction logic for EditView.xaml
     /// </summary>
-    public partial class EditView : Window
+    public partial class EditProfileView : Window
     {
-        public EditView()
+        public EditProfileView()
         {
             InitializeComponent();
         }

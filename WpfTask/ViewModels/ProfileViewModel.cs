@@ -37,22 +37,20 @@ namespace WpfTask.ViewModels
             }
         }
 
-        public void OpenEditView()
+        private void OpenEditView()
         {
             var mainWindow = Application.Current.Windows[0];
-            var editViewModel = new EditViewModel(Person);
-            EditView editView = new EditView
+            var editViewModel = new EditProfileViewModel(Person);
+            EditProfileView editView = new EditProfileView
             {
                 DataContext = editViewModel,
             };
-            mainWindow.Hide();
             editView.ShowDialog();
             if (editViewModel.Saved)
             {
                 Person = (PersonModel)editViewModel.Person.Clone();
                 OnPropertyChanged(nameof(Person));
             }
-            mainWindow.Show();
         }
 
     }
