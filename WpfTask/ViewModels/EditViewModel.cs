@@ -11,7 +11,7 @@ using WpfTask.Models;
 
 namespace WpfTask.ViewModels
 {
-    internal class EditViewModel
+    internal class EditViewModel : BaseViewModel
     {
         public PersonModel Person { get; set; }
         public bool Saved;

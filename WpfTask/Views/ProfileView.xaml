@@ -1,11 +1,12 @@
-﻿<Window x:Class="WpfTask.Views.MainView"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfTask.Views"
-        mc:Ignorable="d"
-        Title="MainView" Height="400" Width="300" FontSize="20">
+﻿<UserControl x:Class="WpfTask.Views.ProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfTask.Views"
+             mc:Ignorable="d" 
+             d:Background="White"
+             d:DesignHeight="400" d:DesignWidth="300" FontSize="20">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -53,7 +54,7 @@
             <TextBlock Text="{Binding Person.Profession}" Grid.Row="3" Grid.Column="1" Padding="20,0,0,0" />
         </Grid>
 
-        <Button x:Name="OpenEditView" Grid.Row="4" Grid.Column="1" Content="Edit info"/>
+        <Button Command="{Binding Path=OpenEditViewCommand}" Grid.Row="4" Grid.Column="1" Content="Edit info"/>
 
     </Grid>
-</Window>
+</UserControl>
