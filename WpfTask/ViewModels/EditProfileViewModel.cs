@@ -11,15 +11,12 @@ using WpfTask.Models;
 
 namespace WpfTask.ViewModels
 {
-    internal class EditViewModel
+    internal class EditProfileViewModel : BaseViewModel
     {
         public PersonModel Person { get; set; }
         public bool Saved;
 
-        public Profession[] Professions { get; set; } = 
-            Enum.GetValues(typeof(Profession)).Cast<Profession>().ToArray();
-
-        public EditViewModel(PersonModel person)
+        public EditProfileViewModel(PersonModel person)
         {
             Person = (PersonModel)person.Clone();
         }
@@ -33,7 +30,7 @@ namespace WpfTask.ViewModels
                 if (_saveCommand == null)
                 {
                     _saveCommand = new RelayCommand(
-                        param => this.Save()
+                        ex => this.Save(), canex => this.SaveCanExecute()
                     );
                 }
                 return _saveCommand;
@@ -56,19 +53,25 @@ namespace WpfTask.ViewModels
             }
         }
 
-        public void Save()
+        private bool SaveCanExecute()
+        {
+            if (string.IsNullOrEmpty(Person.FirstName) || string.IsNullOrEmpty(Person.LastName))
+                return false;
+            else
+                return true;
+        }
+
+        private void Save()
         {
             Saved = true;
             CloseEditView();
             CloseEditView();
-
         }
 
-        public void Cancel()
+        private void Cancel()
         {
             CloseEditView();
             CloseEditView();
-
         }
 
         private void CloseEditView()

@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfTask.Views
+namespace WpfTask
 {
     /// <summary>
-    /// Interaction logic for EditView.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class EditView : Window
+    public partial class MainWindow : Window
     {
-        public EditView()
+        public MainWindow()
         {
             InitializeComponent();
         }
